@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_stars
+    columns:
+      - name: star_key 
+        description: The surrogate key of the star
+        tests:
+          - not_null
+          - unique

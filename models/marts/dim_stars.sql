@@ -1,7 +1,15 @@
-with star_parameters as (
+with numbered_rows as (
 
-    select distinct
-        {{ dbt_utils.generate_surrogate_key(['star_name']) }} as star_key,
+    select
+        *,
+        row_number() over (partition by star_name 
+        order by discovery_year desc) as row_number
+    from {{ ref('stg_nasa__exoplanets') }}
+),
+
+unique_measurement_per_star as (
+    select
+            {{ dbt_utils.generate_surrogate_key(['star_name']) }} as star_key,
             star_name,
             star_age_in_gyr,
             star_surface_gravity_in_g,
@@ -13,9 +21,11 @@ with star_parameters as (
             star_temperature_in_k,
             star_distance_in_parsecs,
             star_number_of_planets,
-            star_number_of_stars
-
-    from {{ ref('stg_nasa__exoplanets') }}
+            star_number_of_stars,
+            discovery_year as star_measurement_year
+    
+    from numbered_rows
+    where row_number = 1
 )
-
-select * from star_parameters
+        
+select * from unique_measurement_per_star
