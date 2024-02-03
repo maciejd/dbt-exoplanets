@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_discovery
+    columns:
+      - name: discovery_key 
+        description: The surrogate key of the discovery
+        tests:
+          - not_null
+          - unique
+      - name: disc_year 
+        description: Discovery Year
+        tests:
+          - not_null
+          - unique
+      - name: disc_facility 
+        description: Discovery Facility
+        tests:
+          - not_null
+      - name: discoverymethod
+        description: Deiscovery Method
+        tests:
+          - not_null
