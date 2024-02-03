@@ -5,5 +5,5 @@ sources:
     database: personal-2024-412418
     schema: testowy
     tables:
-      - name: planety_full
+      - name: nasa_exoplanets_archive
       
