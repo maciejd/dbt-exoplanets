@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fct_discoveries
+    columns:
+      - name: discovery_key 
+        description: The surrogate key of the discovery
+        tests:
+          - not_null
+          - unique
+      - name: planet_key
+        description: The surrogate key of the planet
+        tests:
+          - not_null
+          - unique
+      - name: star_key
+        description: The surrogate key of the star
+        tests:
+          - not_null
