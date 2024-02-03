@@ -1,0 +1,1 @@
+select * from {{ source('bq_1', 'planety_full') }}

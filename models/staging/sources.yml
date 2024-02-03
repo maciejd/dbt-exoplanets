@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: bq_1
+    database: personal-2024-412418
+    schema: testowy
+    tables:
+      - name: planety_full
+      
