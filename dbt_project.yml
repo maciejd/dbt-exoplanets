@@ -35,4 +35,6 @@ models:
   testowy:
     staging:
     +materialized: table
+    marts:
+    +materalized: table
 

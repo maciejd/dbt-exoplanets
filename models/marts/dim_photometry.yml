@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_photometry
+    columns:
+      - name: star_key 
+        description: The surrogate key of the discovery
+        tests:
+          - not_null
+          - unique
+      - name: star_brightness_in_v
+        description: Brightness of the host star as measured using the V (Johnson) band in units of magnitudes
+      - name: star_brightness_in_k
+        description: Brightness of the host star as measured using the K (2MASS) band in units of magnitudes
+      - name: star_brightness_in_gaia 
+        description: Brightness of the host star as measuring using the Gaia band in units of magnitudes. Objects matched to Gaia using the Hipparcos or 2MASS IDs provided in Gaia DR2.

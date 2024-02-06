@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: bq_1
+    database: personal-2024-412418
+    schema: testowy
+    tables:
+      - name: nasa_exoplanets_archive
+
+models:
+  - name: stg_nasa__exoplanets
+    columns:
+      - name: planet_name 
+        description: Planet name most commonly used in the literature
+        tests:
+          - not_null
+          - unique
+      - name: star_name
+        description: Stellar name most commonly used in the literature
+        tests:
+          - not_null
+      - name: discovery_method
+        description: Method by which the planet was first identified
+        tests:
+          - not_null
+        
+      
